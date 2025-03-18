@@ -45,13 +45,7 @@ python3 funnel_exploit.py
 ```bash
 $ python3 funnel_exploit.py
 
-▗▄▄▖                ▝▜  ▗▄▄                                                                                                                                                                                                                                                                       
-▐   ▗ ▗ ▗▗▖ ▗▗▖  ▄▖  ▐  ▐ ▝▌▖  ▖▗▗▖                                                                                                                                                                                                                                                               
-▐▄▄▖▐ ▐ ▐▘▐ ▐▘▐ ▐▘▐  ▐  ▐▄▟▘▚▗▗▘▐▘▐                                                                                                                                                                                                                                                               
-▐   ▐ ▐ ▐ ▐ ▐ ▐ ▐▀▀  ▐  ▐   ▐▟▟ ▐ ▐                                                                                                                                                                                                                                                               
-▐   ▝▄▜ ▐ ▐ ▐ ▐ ▝▙▞  ▝▄ ▐    ▌▌ ▐ ▐                                                                                                                                                                                                                                                               
-                                     
-
+                                                                                                                                                                                                                                                           
 [+] Running Nmap Scan...
 [+] Open Ports: [21, 22]
 
